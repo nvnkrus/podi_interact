@@ -15,7 +15,10 @@ from pyvista import examples
 import scipy.io as sio
 import pickle
 import streamlit as st 
-
+import vtk
+from itkwidgets import view
+from ipywidgets import embed
+import streamlit.components.v1 as components
 
 print(os.getcwd())
 print(os.listdir())
@@ -31,17 +34,30 @@ msg = os.listdir()
 st.title('Interactive PODI apps')
 st.success(msg)
 
+reader = vtk.vtkNIFTIImageReader()
+fname = 'brain.nii'
+reader.SetFileName(fname)
+reader.Update()
 
-pv.set_jupyter_backend('ipyvtklink')
-sphere = pv.Sphere()
 
-# short example
-image = sphere.plot(jupyter_backend='ipyvtklink', return_cpos=False)
+view_width = 1600
+view_height = 1200
 
-# long example
-plotter = pv.Plotter(notebook=True)
-plotter.add_mesh(sphere)
-plotter.show()
+snippet = embed.embed_snippet(views=view(reader.GetOutput()))
+html = embed.html_template.format(title="", snippet=snippet)
+components.html(html, width=view_width, height=view_height)
+
+
+# pv.set_jupyter_backend('ipyvtklink')
+# sphere = pv.Sphere()
+
+# # short example
+# image = sphere.plot(jupyter_backend='ipyvtklink', return_cpos=False)
+
+# # long example
+# plotter = pv.Plotter(notebook=True)
+# plotter.add_mesh(sphere)
+# plotter.show()
 # plotter.show(jupyter_backend='ipyvtklink')
 
 # st.pyplot(plotter)
