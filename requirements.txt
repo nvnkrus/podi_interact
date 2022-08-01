@@ -9,3 +9,4 @@ vtk
 imageio
 ipyvtklink
 matplotlib
+panel 
