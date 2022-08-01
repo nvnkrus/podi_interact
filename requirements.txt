@@ -8,5 +8,6 @@ scipy
 vtk
 imageio
 ipyvtklink
+itkwidgets
 matplotlib
 panel 
