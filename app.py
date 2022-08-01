@@ -32,12 +32,16 @@ st.title('Interactive PODI apps')
 st.success(msg)
 
 
+pv.set_jupyter_backend('ipyvtklink')
+sphere = pv.Sphere()
 
+# short example
+image = sphere.plot(jupyter_backend='ipyvtklink', return_cpos=False)
 
-# download an example and display it using physically based rendering.
-mesh = examples.download_lucy()
-mesh.plot(color='lightgrey', pbr=True, metallic=0.2,
-          jupyter_backend='pythreejs')
+# long example
+plotter = pv.Plotter(notebook=True)
+plotter.add_mesh(sphere)
+plotter.show(jupyter_backend='ipyvtklink')
 
 # # Define a simple Gaussian surface
 # n = 20

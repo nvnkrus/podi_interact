@@ -8,3 +8,4 @@ scipy
 vtk
 imageio
 ipyvtklink
+matplotlib
