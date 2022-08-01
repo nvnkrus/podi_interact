@@ -1,0 +1,7 @@
+pickle-mixin
+streamlit
+sklearn
+numpy
+pyvista
+pyvistaqt
+scipy
