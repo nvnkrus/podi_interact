@@ -15,6 +15,7 @@ import pickle
 import streamlit as st 
 print(os.getcwd())
 print(os.listdir())
+msg = os.listdir()
 
 # mat_fname = os.path.join('datasets','dome1_v1.mat')
 # mat_contents = sio.loadmat(mat_fname)
@@ -22,9 +23,9 @@ print(os.listdir())
 # msg = str(mat_contents['dome'].dtype)
 # print(msg)
 
-# # giving a title
-# st.title('Interactive PODI apps')
-# st.success(msg)
+# giving a title
+st.title('Interactive PODI apps')
+st.success(msg)
 
 # fname = os.path.join('database','para','paraval.bin')
 # paraval = binread(fname=fname)
