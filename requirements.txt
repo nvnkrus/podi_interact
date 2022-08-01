@@ -5,3 +5,6 @@ numpy
 pyvista
 pyvistaqt
 scipy
+vtk
+imageio
+ipyvtklink
