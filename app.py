@@ -41,9 +41,10 @@ image = sphere.plot(jupyter_backend='ipyvtklink', return_cpos=False)
 # long example
 plotter = pv.Plotter(notebook=True)
 plotter.add_mesh(sphere)
+plotter.show()
 # plotter.show(jupyter_backend='ipyvtklink')
 
-st.pyplot(plotter)
+# st.pyplot(plotter)
 # # Define a simple Gaussian surface
 # n = 20
 # x = np.linspace(-200, 200, num=n) + np.random.uniform(-5, 5, size=n)
