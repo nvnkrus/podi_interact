@@ -27,6 +27,20 @@ msg = os.listdir()
 st.title('Interactive PODI apps')
 st.success(msg)
 
+# Define a simple Gaussian surface
+n = 20
+x = np.linspace(-200, 200, num=n) + np.random.uniform(-5, 5, size=n)
+y = np.linspace(-200, 200, num=n) + np.random.uniform(-5, 5, size=n)
+xx, yy = np.meshgrid(x, y)
+A, b = 100, 100
+zz = A * np.exp(-0.5 * ((xx / b) ** 2.0 + (yy / b) ** 2.0))
+
+# Get the points as a 2D NumPy array (N by 3)
+points = np.c_[xx.reshape(-1), yy.reshape(-1), zz.reshape(-1)]
+
+cloud = pv.PolyData(points)
+cloud.plot(point_size=15)
+
 # fname = os.path.join('database','para','paraval.bin')
 # paraval = binread(fname=fname)
 # nparaval = size(paraval,0)
